@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<assert.h>
 #include<stdlib.h>
-//typedef int STDataType;
+typedef int STDataType;
 typedef struct Stack
 {
 	STDataType* _a;

@@ -1,29 +1,27 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"Stack.h"
-//初始化和销毁
 void StackInit(Stack* pst)
 {
-	assert(pst);//判断指针的有效性
-	pst->_a = malloc(sizeof(STDataType) * 4);
+	assert(pst);
+	pst->_a = malloc(sizeof(int) * 4);
 	pst->_top = 0;
 	pst->_capacity = 4;
 }
 void StackDestory(Stack* pst)
 {
-	assert(pst);//判断指针的有效性
+	assert(pst);
 	free(pst->_a);
 	pst->_a = NULL;
 	pst->_top = pst->_capacity = 0;
 }
 //入栈
-void StackPush(Stack* pst, STDataType x)
+void StackPush(Stack* pst, int x)
 {
-	assert(pst);//判断指针的有效性
-	//空间不够则增容
+	assert(pst);
 	if (pst->_top == pst->_capacity)
 	{
 		pst->_capacity *= 2;//每次增容空间的大小为上一次的两倍
-		STDataType* tmp = (STDataType*)realloc(pst->_a, sizeof(STDataType) * pst->_capacity);
+		int* tmp = (int*)realloc(pst->_a, sizeof(int) * pst->_capacity);
 		if (tmp == NULL)//判断是否内存申请成功
 		{
 			printf("内存不足!\n");
@@ -59,7 +57,7 @@ int StackEmpty(Stack* pst)
 	//return !pst->_top;
 }
 //获取栈顶的数据
-STDataType StackTop(Stack* pst)
+int StackTop(Stack* pst)
 {
 	assert(pst);//判断指针的有效性
 	assert(pst->_top > 0);

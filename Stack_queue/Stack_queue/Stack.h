@@ -2,20 +2,17 @@
 #include<stdio.h>
 #include<assert.h>
 #include<stdlib.h>
-typedef int STDataType;
 typedef struct Stack
 {
-	STDataType* _a;
+	int* _a;
 	int _top;//栈顶下标
 	int _capacity;
 }Stack;
-
-//初始化和销毁
 void StackInit(Stack* pst);
 void StackDestory(Stack* pst);
 
 //入栈
-void StackPush(Stack*pst,STDataType x);
+void StackPush(Stack*pst,int x);
 
 //出栈
 void StackPop(Stack* pst);
@@ -27,6 +24,6 @@ int StackSize(Stack* pst);
 int StackEmpty(Stack* pst);
 
 //获取栈顶的数据
-STDataType StackTop(Stack* pst);
+int StackTop(Stack* pst);
 
 
